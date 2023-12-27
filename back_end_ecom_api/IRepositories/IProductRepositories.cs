@@ -5,10 +5,10 @@ namespace back_end_ecom_api.IRepositories
 {
     public interface IProductRepositories
     {
-        public Task<PaginationSet<Products>> GetListProduct(string? keyword, int page_number, int pageSize);
-        public Task<Products> GetProductbyId(long id);
-        public Task<Products> CreateProduct(Products product);
-        public Task<Products> ProductModify(Products product);
-        public Task<bool> DeleteProduct(long id);
+        Task<List<Products>> GetListProduct();
+        Task<Products> GetProductbyId(long id);
+        Task<Products> CreateProduct(Products product);
+        Task<Products> ModifyProduct(long id, Products product);
+        Task<bool> DeleteProduct(long id);
     }
 }

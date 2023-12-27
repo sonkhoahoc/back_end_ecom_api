@@ -14,29 +14,55 @@ namespace back_end_ecom_api.Repositories
             _context = context;
         }
 
-        public Task<Products> CreateProduct(Products product)
+        public async Task<Products> CreateProduct(Products product)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return product;
         }
 
-        public Task<bool> DeleteProduct(long id)
+        public async Task<bool> DeleteProduct(long id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.FindAsync(id);
+
+            if(product == null)
+            {
+                return false;
+            }
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return true;
         }
 
-        public Task<PaginationSet<Products>> GetListProduct(string? keyword, int page_number, int pageSize)
+        public async Task<List<Products>> GetListProduct()
         {
-            throw new NotImplementedException();
+            return await _context.Products.OrderByDescending(p => p.dateAdded).ToListAsync();
         }
 
-        public Task<Products> GetProductbyId(long id)
+        public async Task<Products> GetProductbyId(long id)
         {
-            throw new NotImplementedException();
+            return await _context.Products.FindAsync(id);
         }
 
-        public Task<Products> ProductModify(Products product)
+        public async Task<Products> ModifyProduct(long id, Products product)
         {
-            throw new NotImplementedException();
+            var pro = await _context.Products.FindAsync(id);
+
+            if(pro == null)
+            {
+                return null;
+            }
+
+            pro.category_id = product.category_id;
+            pro.name = product.name;
+            pro.price = product.price;
+            pro.description = product.description;
+            pro.avatar = product.avatar;
+            _context.Entry(product).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return product;
         }
     }
 }
