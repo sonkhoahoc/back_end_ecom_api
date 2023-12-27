@@ -8,17 +8,35 @@
 //{
 //    [Route("api/[controller]")]
 //    [ApiController]
-//    public class ProductController : BaseController
+//    public class LogoController : BaseController
 //    {
-//        private readonly IProductRepositories _repositories;
+//        private readonly ILogoRepositories _repositories;
 
-//        public ProductController(IProductRepositories repositories)
+//        public LogoController(ILogoRepositories repositories)
 //        {
 //            _repositories = repositories;
 //        }
 
-//        [HttpGet("product-list")]
-//        public async Task<IActionResult> GetListProduct(string? keyword, int page_number, int page_size)
+//        [HttpGet("logo=list")]
+//        public async Task<IActionResult> GetListLogo()
+//        {
+//            try
+//            {
+                
+//            }
+//            catch(Exception)
+//            {
+//                return Ok(new ResponseMessageModel<IResponseData>
+//                {
+//                    StatusCode = 500,
+//                    Message = "Có lỗi trong quá trình xử lý",
+//                    Data = null
+//                });
+//            }
+//        }
+
+//        [HttpGet("logo/{id}")]
+//        public async Task<IActionResult> GetLogobyId(long id)
 //        {
 //            try
 //            {
@@ -35,8 +53,27 @@
 //            }
 //        }
 
-//        [HttpGet("product/{id}")]
-//        public async Task<IActionResult> GetProductbyId(long id)
+//        [HttpPost("logo-create")]
+//        public async Task<IActionResult> CreateLogo([FromBody] Logo logo)
+//        {
+//            try
+//            {
+                
+
+//            }
+//            catch (Exception)
+//            {
+//                return Ok(new ResponseMessageModel<IResponseData>
+//                {
+//                    StatusCode = 500,
+//                    Message = "Có lỗi trong quá trình xử lý",
+//                    Data = null
+//                });
+//            }
+//        }
+
+//        [HttpPut("logo-put/{id}")]
+//        public async Task<IActionResult> ModifyLogo([FromBody] Logo logo, long id)
 //        {
 //            try
 //            {
@@ -53,49 +90,12 @@
 //            }
 //        }
 
-//        [HttpPost("product-create")]
-//        public async Task<IActionResult> CreateProduct([FromBody] Products product)
+//        [HttpDelete("logo-delete/{id}")]
+//        public async Task<IActionResult> DeleteLogo(long id)
 //        {
 //            try
 //            {
                 
-//            }
-//            catch (Exception)
-//            {
-//                return Ok(new ResponseMessageModel<IResponseData>
-//                {
-//                    StatusCode = 500,
-//                    Message = "Có lỗi trong quá trình xử lý",
-//                    Data = null
-//                });
-//            }
-//        }
-
-//        [HttpPut("product-modify/{id}")]
-//        public async Task<IActionResult> ModifyProduct([FromBody] Products product, long id)
-//        {
-//            try
-//            {
-                
-//            }
-//            catch (Exception)
-//            {
-//                return Ok(new ResponseMessageModel<IResponseData>
-//                {
-//                    StatusCode = 500,
-//                    Message = "Có lỗi trong quá trình xử lý",
-//                    Data = null
-//                });
-//            }
-//        }
-
-//        [HttpDelete("product-delete/{id}")]
-//        public async Task<IActionResult> DeleteProduct(long id)
-//        {
-//            try
-//            {
-                
-//                });
 //            }
 //            catch (Exception)
 //            {

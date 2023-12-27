@@ -10,7 +10,6 @@ namespace back_end_ecom_api.Entities
         public long userUpdate {  get; set; }
         public DateTime dateAdded { get; set; } = DateTime.Now;
         public DateTime dateUpdate { get; set; } = DateTime.Now;
-        public bool is_delete { get; set; } = false;
         public void getAuditable()
         {
             if(id == 0)

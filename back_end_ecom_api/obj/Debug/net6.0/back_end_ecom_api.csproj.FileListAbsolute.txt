@@ -74,3 +74,4 @@ D:\DATN\full-stack\back-end\back_end_ecom_api\back_end_ecom_api\obj\Debug\net6.0
 D:\DATN\full-stack\back-end\back_end_ecom_api\back_end_ecom_api\obj\Debug\net6.0\back_end_ecom_api.pdb
 D:\DATN\full-stack\back-end\back_end_ecom_api\back_end_ecom_api\obj\Debug\net6.0\back_end_ecom_api.genruntimeconfig.cache
 D:\DATN\full-stack\back-end\back_end_ecom_api\back_end_ecom_api\obj\Debug\net6.0\ref\back_end_ecom_api.dll
+D:\DATN\full-stack\back-end\back_end_ecom_api\back_end_ecom_api\obj\Debug\net6.0\back_end_ecom_api.sourcelink.json

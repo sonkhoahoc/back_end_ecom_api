@@ -1,40 +1,39 @@
 ﻿using back_end_ecom_api.Entities;
 using back_end_ecom_api.IRepositories;
-using back_end_ecom_api.Models.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace back_end_ecom_api.Repositories
 {
-    public class ProductRepositories : IProductRepositories
+    public class LogoRepositories : ILogoRepositories
     {
         private readonly ApplicationContext _context;
 
-        public ProductRepositories(ApplicationContext context)
+        public LogoRepositories(ApplicationContext context)
         {
             _context = context;
         }
 
-        public Task<Products> CreateProduct(Products product)
+        public Task<Logo> CreateLogo(Logo logo)
         {
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteProduct(long id)
+        public Task<bool> DeleteLogo(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<PaginationSet<Products>> GetListProduct(string? keyword, int page_number, int pageSize)
+        public Task<List<Logo>> GetListLogo()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Products> GetProductbyId(long id)
+        public Task<Logo> GetLogobyId(long id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Products> ProductModify(Products product)
+        public Task<Logo> ModifyLogo(Logo logo)
         {
             throw new NotImplementedException();
         }
