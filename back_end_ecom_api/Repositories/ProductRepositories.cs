@@ -24,7 +24,7 @@ namespace back_end_ecom_api.Repositories
 
         public async Task<bool> DeleteProduct(long id)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.id == id);
+            var product = await _context.Products.FindAsync(id);
 
             if(product == null)
             {

@@ -23,7 +23,7 @@ namespace back_end_ecom_api.Repositories
 
         public async Task<bool> DeleteLogo(long id)
         {
-            var logos = await _context.Logo.FirstOrDefaultAsync(l => l.id == id);
+            var logos = await _context.Logo.FindAsync(id);
 
             if(logos == null)
             {

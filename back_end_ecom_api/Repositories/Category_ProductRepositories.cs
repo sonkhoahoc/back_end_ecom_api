@@ -37,7 +37,7 @@ namespace back_end_ecom_api.Repositories
 
         public async Task<Category_Products> GetCategory_ProductbyId(long id)
         {
-            return await _context.Category_Products.FindAsync(id);
+            return await _context.Category_Products.FirstOrDefaultAsync(c => c.id == id);
         }
 
         public async Task<List<Category_Products>> GetListCategory_Product()
@@ -47,7 +47,7 @@ namespace back_end_ecom_api.Repositories
 
         public async Task<Category_Products> ModifyCategory_Product(long id, Category_Products category)
         {
-            var cate = await _context.Category_Products.FindAsync(id);
+            var cate = await _context.Category_Products.FirstOrDefaultAsync(c => c.id == id);
 
             if(cate == null)
             {
@@ -58,7 +58,7 @@ namespace back_end_ecom_api.Repositories
             _context.Entry(cate).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return category;
+            return cate;
         }
     }
 }

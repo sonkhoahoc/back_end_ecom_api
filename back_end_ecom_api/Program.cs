@@ -11,6 +11,7 @@ var connectionString = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<ApplicationContext>(x => x.UseSqlServer(connectionString));
 builder.Services.AddTransient<IProductRepositories, ProductRepositories>();
 builder.Services.AddTransient<ILogoRepositories, LogoRepositories>();
+builder.Services.AddTransient<ICategory_ProductRepositories, Category_ProductRepositories>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 string issuer = builder.Configuration["TokenSetting:Issuer"].ToString();
