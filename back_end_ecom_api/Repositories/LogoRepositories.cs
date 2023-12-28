@@ -13,29 +13,53 @@ namespace back_end_ecom_api.Repositories
             _context = context;
         }
 
-        public Task<Logo> CreateLogo(Logo logo)
+        public async Task<Logo> CreateLogo(Logo logo)
         {
-            throw new NotImplementedException();
+            _context.Logo.Add(logo);
+            await _context.SaveChangesAsync();
+
+            return logo;
         }
 
-        public Task<bool> DeleteLogo(long id)
+        public async Task<bool> DeleteLogo(long id)
         {
-            throw new NotImplementedException();
+            var logos = await _context.Logo.FirstOrDefaultAsync(l => l.id == id);
+
+            if(logos == null)
+            {
+                return false;
+            }
+
+            _context.Logo.Remove(logos);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
-        public Task<List<Logo>> GetListLogo()
+        public async Task<List<Logo>> GetListLogo()
         {
-            throw new NotImplementedException();
+            return await _context.Logo.OrderByDescending(l => l.dateAdded).ToListAsync();
         }
 
-        public Task<Logo> GetLogobyId(long id)
+        public async Task<Logo> GetLogobyId(long id)
         {
-            throw new NotImplementedException();
+            return await _context.Logo.FirstOrDefaultAsync(l => l.id == id);
         }
 
-        public Task<Logo> ModifyLogo(Logo logo)
+        public async Task<Logo> ModifyLogo(long id, Logo logo)
         {
-            throw new NotImplementedException();
+            var logos = await _context.Logo.FirstOrDefaultAsync(l => l.id == id);
+
+            if(logos == null)
+            {
+                return null;
+            }
+
+            logos.logo_name = logo.logo_name;
+            _context.Entry(logos).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return logos;
         }
     }
 }

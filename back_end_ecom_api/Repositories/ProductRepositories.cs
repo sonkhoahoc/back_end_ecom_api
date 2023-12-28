@@ -18,12 +18,13 @@ namespace back_end_ecom_api.Repositories
         {
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
+
             return product;
         }
 
         public async Task<bool> DeleteProduct(long id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.id == id);
 
             if(product == null)
             {
@@ -32,6 +33,7 @@ namespace back_end_ecom_api.Repositories
 
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
+
             return true;
         }
 
@@ -42,12 +44,12 @@ namespace back_end_ecom_api.Repositories
 
         public async Task<Products> GetProductbyId(long id)
         {
-            return await _context.Products.FindAsync(id);
+            return await _context.Products.FirstOrDefaultAsync(p => p.id == id);
         }
 
         public async Task<Products> ModifyProduct(long id, Products product)
         {
-            var pro = await _context.Products.FindAsync(id);
+            var pro = await _context.Products.FirstOrDefaultAsync(p => p.id == id);
 
             if(pro == null)
             {
@@ -59,10 +61,10 @@ namespace back_end_ecom_api.Repositories
             pro.price = product.price;
             pro.description = product.description;
             pro.avatar = product.avatar;
-            _context.Entry(product).State = EntityState.Modified;
+            _context.Entry(pro).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
-            return product;
+            return pro;
         }
     }
 }
