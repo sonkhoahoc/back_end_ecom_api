@@ -13,7 +13,7 @@ namespace back_end_ecom_api.Entities
         public virtual DbSet<Banners> Banners { get; set; }
         public virtual DbSet<Logo> Logo { get; set; }
         public virtual DbSet<Product_Files> Product_Files { get; set; }
-        public virtual DbSet<Sizies> Sizies { get; set; }
+        public virtual DbSet<Sizes> Sizes { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

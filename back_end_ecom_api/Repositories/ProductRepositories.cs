@@ -2,6 +2,7 @@
 using back_end_ecom_api.IRepositories;
 using back_end_ecom_api.Models.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 
 namespace back_end_ecom_api.Repositories
 {
@@ -41,7 +42,6 @@ namespace back_end_ecom_api.Repositories
         {
             return await _context.Products.OrderByDescending(p => p.dateAdded).ToListAsync();
         }
-
         public async Task<Products> GetProductbyId(long id)
         {
             return await _context.Products.FirstOrDefaultAsync(p => p.id == id);

@@ -3,7 +3,7 @@
 namespace back_end_ecom_api.Entities
 {
     [Table("size")]
-    public class Sizies: IAuditableEntity
+    public class Sizes: IAuditableEntity
     {
         public long product_id { get; set; }
         public string name { get; set; } = "";
