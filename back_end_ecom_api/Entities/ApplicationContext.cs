@@ -15,5 +15,6 @@ namespace back_end_ecom_api.Entities
         public virtual DbSet<Product_Files> Product_Files { get; set; }
         public virtual DbSet<Sizes> Sizes { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Sliders> Sliders { get; set; }
     }
 }

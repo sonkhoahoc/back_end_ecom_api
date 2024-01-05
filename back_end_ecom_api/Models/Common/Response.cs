@@ -32,4 +32,17 @@
     public class Response
     {
     }
+
+    public class ChangePassModel
+    {
+        public long id { get; set; }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
+    }
+
+    public class LoginModel
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+    }
 }

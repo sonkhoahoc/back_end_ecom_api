@@ -14,6 +14,8 @@ builder.Services.AddTransient<ILogoRepositories, LogoRepositories>();
 builder.Services.AddTransient<ICategory_ProductRepositories, Category_ProductRepositories>();
 builder.Services.AddTransient<ISizeRepositories, SizeRepositories>();
 builder.Services.AddTransient<IBannerRepositories, BannerRepositories>();
+builder.Services.AddTransient<ISliderRepositories, SliderRepositories>();
+builder.Services.AddTransient<IAdminRepositories, AdminRepositories>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 string issuer = builder.Configuration["TokenSetting:Issuer"].ToString();
